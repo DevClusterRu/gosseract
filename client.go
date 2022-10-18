@@ -326,11 +326,12 @@ func (client *Client) setVariablesToInitializedAPIIfNeeded() error {
 	return nil
 }
 
+func (client *Client) Init() error {
+	return client.init()
+}
+
 // Text finally initialize tesseract::TessBaseAPI, execute OCR and extract text detected as string.
 func (client *Client) Text() (out string, err error) {
-	if err = client.init(); err != nil {
-		return
-	}
 	out = C.GoString(C.UTF8Text(client.api))
 	if client.Trim {
 		out = strings.Trim(out, "\n")
