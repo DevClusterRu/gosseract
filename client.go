@@ -334,7 +334,8 @@ func (client *Client) Init() error {
 func (client *Client) Text() (out string, err error) {
 	out = C.GoString(C.UTF8Text(client.api))
 	if client.Trim {
-		out = strings.Trim(out, "\n")
+		out = strings.ReplaceAll(out, "\n", " ")
+		//out = strings.Trim(out, "\n")
 	}
 	return out, err
 }
