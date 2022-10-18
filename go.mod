@@ -1,4 +1,4 @@
-module github.com/otiai10/gosseract/v2
+module github.com/DevClusterRu/gosseract/v3
 
 go 1.14
 
